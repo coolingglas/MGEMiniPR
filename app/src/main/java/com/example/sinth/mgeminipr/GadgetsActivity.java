@@ -11,12 +11,12 @@ import domain.Gadget;
 import service.Callback;
 import service.LibraryService;
 
-public class GetGadgets extends AppCompatActivity {
+public class GadgetsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.get_gatets_activity);
+        setContentView(R.layout.activity_gadgets);
 
        // LibraryService.setServerAddress("http://mge1.dev.ifs.hsr.ch/public​");
         LibraryService.getGadgets(new Callback<List<Gadget>>() {
@@ -25,7 +25,7 @@ public class GetGadgets extends AppCompatActivity {
 
                 ListView view = (ListView) findViewById(R.id.gadgets);
 
-                MyArrayAdapter<Gadget> arrayAdapter = new MyArrayAdapter<> (GetGadgets.this, R.layout.layout_row, R.id.label, input);
+                MyArrayAdapter<Gadget> arrayAdapter = new MyArrayAdapter<> (GadgetsActivity.this, R.layout.layout_row, R.id.label, input);
 
 
                 view.setAdapter(arrayAdapter);
