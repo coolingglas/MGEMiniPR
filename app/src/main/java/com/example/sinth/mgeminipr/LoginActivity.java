@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.get_gatets_activity);
+        setContentView(R.layout.activity_gadgets);
         LibraryService.setServerAddress("http://mge1.dev.ifs.hsr.ch/public");
         /*LibraryService.register("guesel", "guesel", "guesel", "guesel", new Callback<Boolean>() {
             @Override
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onCompletion(Boolean input) {
                 if(input){
                     Log.d("Top", "Login");
-                    Intent i = new Intent(LoginActivity.this, GetGadgets.class);
+                    Intent i = new Intent(LoginActivity.this, GadgetsActivity.class);
                     startActivity(i);
 
                 } else {
