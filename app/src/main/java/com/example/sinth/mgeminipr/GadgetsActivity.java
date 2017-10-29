@@ -15,7 +15,7 @@ public class GadgetsActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new LoanFragment(), "Loans");
-        adapter.addFragment(new ReservationFragment(), "Reservations");
+        adapter.addFragment(new ShowReservationFragment(), "Reservations");
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);

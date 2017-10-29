@@ -16,7 +16,7 @@ import domain.Reservation;
 import service.Callback;
 import service.LibraryService;
 
-public class ReservationFragment extends Fragment {
+public class ShowReservationFragment extends Fragment {
     private RecyclerView recyclerView;
 
     @Override
