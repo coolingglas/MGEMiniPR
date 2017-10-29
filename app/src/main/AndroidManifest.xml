@@ -19,12 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-<<<<<<< HEAD
         <activity android:name=".GetGadgets" />
         <activity android:name=".ActivityReserve"></activity>
-=======
         <activity android:name=".GadgetsActivity"/>
->>>>>>> f66ea4bf19131f9e4f8620819ff9bdc2e10c0833
     </application>
 
 </manifest>

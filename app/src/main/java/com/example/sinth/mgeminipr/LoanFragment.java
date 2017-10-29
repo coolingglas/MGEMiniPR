@@ -1,4 +1,4 @@
-package com.example.sinth.mgeminipr;
+/*package com.example.sinth.mgeminipr;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -57,8 +57,9 @@ public class LoanFragment extends Fragment {
             public void onError(String message) {
 
             }
-        });*/
+        });
 
         return recyclerView;
     }
 }
+*/

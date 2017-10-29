@@ -1,15 +1,15 @@
 package com.example.sinth.mgeminipr;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import domain.Reservation;
@@ -26,14 +26,34 @@ public class ReservationFragment extends Fragment {
         LibraryService.getReservationsForCustomer(new Callback<List<Reservation>>() {
             @Override
             public void onCompletion(List<Reservation> input) {
-                List<String> items = new ArrayList<>();
-                for(int i = 0; i < input.size(); i++) {
-                    items.add(input.get(i).getGadget().getName());
-                }
+
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                RecyclerAdapter recyclerAdapter = new RecyclerAdapter(items);
-                recyclerView.setAdapter(recyclerAdapter);
+                RecyclerAdapterForReservations recyclerAdapterForReservations = new RecyclerAdapterForReservations(input);
+                recyclerView.setAdapter(recyclerAdapterForReservations);
+
+                recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+                    @Override
+                    public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+return false;
+
+                    }
+
+                    @Override
+                    public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+
+                    }
+
+                    @Override
+                    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+                    }
+                });
+
+
             }
+
 
             @Override
             public void onError(String message) {

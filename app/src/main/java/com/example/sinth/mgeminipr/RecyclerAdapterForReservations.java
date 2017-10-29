@@ -9,12 +9,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+import domain.Reservation;
 
-    private List<String> items;
+public class RecyclerAdapterForReservations extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    public RecyclerAdapter(List<String> itemList) {
-        items = itemList;
+    private List<Reservation> reservations;
+
+    public RecyclerAdapterForReservations(List<Reservation> itemList) {
+        reservations = itemList;
     }
 
     public static class RecyclerItemViewHolder extends RecyclerView.ViewHolder {
@@ -42,13 +44,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         RecyclerItemViewHolder holder = (RecyclerItemViewHolder) viewHolder;
-        String itemText = items.get(position);
-        holder.setItemText(itemText);
+        Reservation reservation = reservations.get(position);
+        holder.setItemText(reservation.getGadget().getName());
     }
 
     @Override
-    public int getItemCount() {
-        return items == null ? 0 : items.size();
-    }
+   public int getItemCount() {
+        return 0; //items == null ? 0 : items.size();
+   }
+
 
 }

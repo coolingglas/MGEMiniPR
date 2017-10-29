@@ -19,7 +19,7 @@ public class GetGadgets extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.get_gatets_activity);
+        setContentView(R.layout.activity_gadgets_sinthu);
 
        // LibraryService.setServerAddress("http://mge1.dev.ifs.hsr.ch/public​");
         LibraryService.getGadgets(new Callback<List<Gadget>>() {
