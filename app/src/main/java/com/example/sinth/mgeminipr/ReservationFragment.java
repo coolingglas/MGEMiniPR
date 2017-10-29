@@ -34,14 +34,11 @@ public class ReservationFragment extends Fragment {
                 recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
                     @Override
                     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
-return false;
-
+                        return false;
                     }
 
                     @Override
                     public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
 
                     }
 
@@ -50,10 +47,7 @@ return false;
 
                     }
                 });
-
-
             }
-
 
             @Override
             public void onError(String message) {

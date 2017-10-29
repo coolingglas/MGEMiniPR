@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.Console;
 import java.util.List;
 
 import domain.Gadget;
@@ -18,6 +19,7 @@ import service.LibraryService;
 public class GadgetsFragment extends Fragment {
     private RecyclerView recyclerView;
 //fragment_loan in fragment_Gadgets anpassen
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_loan, container, false);
