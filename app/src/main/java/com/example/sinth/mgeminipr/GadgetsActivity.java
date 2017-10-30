@@ -5,21 +5,52 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-public class GadgetsActivity extends AppCompatActivity {
+import java.util.List;
+
+import domain.Gadget;
+import domain.Reservation;
+import service.Callback;
+import service.LibraryService;
+
+public class GadgetsActivity extends AppCompatActivity implements IReservationClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gadgets);
 
+        loadFragments();
+    }
+
+    private void loadFragments() {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+<<<<<<< HEAD
         adapter.addFragment(new GadgetsFragment(), "Loans");
         adapter.addFragment(new ReservationFragment(), "Reservations");
+=======
+        adapter.addFragment(new ShowReservationFragment(), "Reservations");
+        adapter.addFragment(new LoanFragment(), "Loans");
+>>>>>>> Test
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public void onReservationClicked(Reservation reservation) {
+        LibraryService.deleteReservation(reservation, new Callback<Boolean>() {
+            @Override
+            public void onCompletion(Boolean input) {
+                loadFragments();
+            }
+
+            @Override
+            public void onError(String message) {
+
+            }
+        });
     }
 }
 

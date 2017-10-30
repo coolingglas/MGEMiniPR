@@ -26,13 +26,9 @@ public class LoanFragment extends Fragment {
         LibraryService.getLoansForCustomer(new Callback<List<Loan>>() {
             @Override
             public void onCompletion(List<Loan> input) {
-                List<String> items = new ArrayList<>();
-                for(int i = 0; i < input.size(); i++) {
-                    items.add(input.get(i).getGadget().getName());
-                }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                RecyclerAdapter recyclerAdapter = new RecyclerAdapter(items);
-                recyclerView.setAdapter(recyclerAdapter);
+                LoanRecyclerAdapter loanRecyclerAdapter = new LoanRecyclerAdapter(input);
+                recyclerView.setAdapter(loanRecyclerAdapter);
             }
 
             @Override
