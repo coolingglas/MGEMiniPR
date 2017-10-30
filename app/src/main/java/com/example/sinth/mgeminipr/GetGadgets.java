@@ -28,56 +28,19 @@ public class GetGadgets extends AppCompatActivity {
 
                 final ListView view = (ListView) findViewById(R.id.gadgets);
 
-                //MyArrayAdapter<Gadget> arrayAdapter = new MyArrayAdapter<> (GetGadgets.this, R.layout.layout_row, R.id.label, input);
-
-               // TextView v = (TextView) findViewById(R.id.);
-
-                //view.setAdapter(arrayAdapter);
-
-
-
-
-
-//Gadget Reservieren
                 LibraryService.reserveGadget(input.get(0), new Callback<Boolean>() {
-                            @Override
-                            public void onCompletion(Boolean input) {
-                                LibraryService.getReservationsForCustomer(new Callback<List<Reservation>>() {
-                                    @Override
-                                    public void onCompletion(List<Reservation> input) {
-                                        MyArrayAdapterForReservations<Reservation>  adapterForReservations = new MyArrayAdapterForReservations<Reservation>(GetGadgets.this, R.layout.layout_row, R.id.label, input);
+                    @Override
+                    public void onCompletion(Boolean input) {
 
-                                        view.setAdapter(adapterForReservations);
+                    }
 
-                                        view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                                Reservation reservation = (Reservation) parent.getItemAtPosition(position);
-                                                //reservation.setSelected(!module.isSelected());
-                                               // dataAdapter.notifyDataSetChanged();
+                    @Override
+                    public void onError(String message) {
 
-                                               // LibraryService.deleteReservation(new Callback<boolean>());
-                                            }
-                                        });
-
-
-                                    }
-
-                                    @Override
-                                    public void onError(String message) {
-
-                                    }
-                                });
-                            }
-
-                            @Override
-                            public void onError(String message) {
-
-                            }
-                        }
-                );
+                    }
+                });
 
                 view.findViewById(R.id.gadgets);
-
             }
 
             @Override
@@ -85,6 +48,7 @@ public class GetGadgets extends AppCompatActivity {
                 Log.d(message, message);
             }
         });
+
         /*LibraryService.getGadgets(new Callback<List<Gadget>>() {
             @Override
             public void onCompletion(List<Gadget> input) {

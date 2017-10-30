@@ -25,13 +25,8 @@ public class GadgetsActivity extends AppCompatActivity implements IReservationCl
     private void loadFragments() {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-<<<<<<< HEAD
-        adapter.addFragment(new GadgetsFragment(), "Loans");
-        adapter.addFragment(new ReservationFragment(), "Reservations");
-=======
         adapter.addFragment(new ShowReservationFragment(), "Reservations");
         adapter.addFragment(new LoanFragment(), "Loans");
->>>>>>> Test
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);

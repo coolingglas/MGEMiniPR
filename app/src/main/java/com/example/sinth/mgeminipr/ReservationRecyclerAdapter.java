@@ -17,20 +17,14 @@ import domain.Reservation;
 public class ReservationRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Reservation> items;
-    private ShowReservationFragment fragment;
     private IReservationClickListener listener;
 
-    public ReservationRecyclerAdapter(IReservationClickListener listener){//List<Reservation> itemList) {
-        //items = itemList;
+    public ReservationRecyclerAdapter(IReservationClickListener listener){
         this.listener = listener;
     }
 
     public void setItems(List<Reservation> itemList) {
         items = itemList;
-    }
-
-    public void setFragment(ShowReservationFragment fragment) {
-        this.fragment = fragment;
     }
 
     public static class RecyclerItemViewHolder extends RecyclerView.ViewHolder {
