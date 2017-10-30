@@ -21,6 +21,7 @@ public class GadgetsFragment extends Fragment {
 
 
 //fragment_loan in fragment_Gadgets anpassen
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_loan, container, false);
@@ -40,7 +41,7 @@ public class GadgetsFragment extends Fragment {
                             @Override public void onItemClick(View view, int position) {
                                 Log.d(recyclerAdapter.getItem(position).toString(),"lol");
                                 startActivity(null);
-                                callback.onItemSelected();
+
                             }
                         })
                 );

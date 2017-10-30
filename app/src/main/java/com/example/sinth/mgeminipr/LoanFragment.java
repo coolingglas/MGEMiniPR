@@ -1,7 +1,7 @@
-/*package com.example.sinth.mgeminipr;
+package com.example.sinth.mgeminipr;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import domain.Loan;
@@ -26,13 +25,9 @@ public class LoanFragment extends Fragment {
         LibraryService.getLoansForCustomer(new Callback<List<Loan>>() {
             @Override
             public void onCompletion(List<Loan> input) {
-                List<String> items = new ArrayList<>();
-                for(int i = 0; i < input.size(); i++) {
-                    items.add(input.get(i).getGadget().getName());
-                }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                RecyclerAdapter recyclerAdapter = new RecyclerAdapter(items);
-                recyclerView.setAdapter(recyclerAdapter);
+                LoanRecyclerAdapter loanRecyclerAdapter = new LoanRecyclerAdapter(input);
+                recyclerView.setAdapter(loanRecyclerAdapter);
             }
 
             @Override
@@ -57,9 +52,8 @@ public class LoanFragment extends Fragment {
             public void onError(String message) {
 
             }
-        });
+        });*/
 
         return recyclerView;
     }
 }
-*/
