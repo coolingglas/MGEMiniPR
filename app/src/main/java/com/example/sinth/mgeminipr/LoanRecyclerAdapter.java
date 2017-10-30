@@ -9,11 +9,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+import domain.Gadget;
+import domain.Loan;
 
-    private List<String> items;
+public class LoanRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    public RecyclerAdapter(List<String> itemList) {
+    private List<Loan> items;
+
+    public LoanRecyclerAdapter(List<Loan> itemList) {
         items = itemList;
     }
 
@@ -42,7 +45,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         RecyclerItemViewHolder holder = (RecyclerItemViewHolder) viewHolder;
-        String itemText = items.get(position);
+        String itemText = items.get(position).getGadget().getName();
         holder.setItemText(itemText);
     }
 

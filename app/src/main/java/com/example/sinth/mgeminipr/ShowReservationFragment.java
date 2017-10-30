@@ -1,5 +1,9 @@
 package com.example.sinth.mgeminipr;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,21 +22,27 @@ import service.LibraryService;
 
 public class ShowReservationFragment extends Fragment {
     private RecyclerView recyclerView;
+    private IReservationClickListener myClickListener;
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        myClickListener = (IReservationClickListener) activity;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_loan, container, false);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        final ReservationRecyclerAdapter reservationRecyclerAdapter = new ReservationRecyclerAdapter(myClickListener);
+        reservationRecyclerAdapter.setFragment(this);
+
         LibraryService.getReservationsForCustomer(new Callback<List<Reservation>>() {
             @Override
             public void onCompletion(List<Reservation> input) {
-                List<String> items = new ArrayList<>();
-                for(int i = 0; i < input.size(); i++) {
-                    items.add(input.get(i).getGadget().getName());
-                }
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                RecyclerAdapter recyclerAdapter = new RecyclerAdapter(items);
-                recyclerView.setAdapter(recyclerAdapter);
+                reservationRecyclerAdapter.setItems(input);
+                recyclerView.setAdapter(reservationRecyclerAdapter);
             }
 
             @Override
