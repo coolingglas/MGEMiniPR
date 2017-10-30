@@ -5,12 +5,18 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-public class GadgetsActivity extends AppCompatActivity {
+import domain.Gadget;
+
+
+public class GadgetsActivity extends AppCompatActivity implements OnItemSelected {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gadgets);
+
+
+
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -21,6 +27,13 @@ public class GadgetsActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
+
+    @Override
+    public void onItemSelected(Gadget gadget) {
+
+    }
+
+
 }
 
 
@@ -39,3 +52,5 @@ public class GadgetsActivity extends AppCompatActivity {
             Log.d(message, message);
         }
     });*/
+
+

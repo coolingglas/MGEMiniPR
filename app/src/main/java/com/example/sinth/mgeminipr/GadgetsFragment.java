@@ -17,6 +17,9 @@ import service.LibraryService;
 
 public class GadgetsFragment extends Fragment {
     private RecyclerView recyclerView;
+    private OnItemSelected callback;
+
+
 //fragment_loan in fragment_Gadgets anpassen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class GadgetsFragment extends Fragment {
                             @Override public void onItemClick(View view, int position) {
                                 Log.d(recyclerAdapter.getItem(position).toString(),"lol");
                                 startActivity(null);
+                                callback.onItemSelected();
                             }
                         })
                 );
@@ -50,4 +54,6 @@ public class GadgetsFragment extends Fragment {
 
         return recyclerView;
     }
+
+
 }

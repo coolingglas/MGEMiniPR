@@ -1,5 +1,6 @@
 package com.example.sinth.mgeminipr;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import service.LibraryService;
 
 public class ReservationFragment extends Fragment {
     private RecyclerView recyclerView;
+    private OnItemSelected callback;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,5 +64,14 @@ return false;
         });
 
         return recyclerView;
+    }
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        if (!(activity instanceof OnItemSelected)) {
+            throw new AssertionError(
+                    "Activity must implement OnItemSelected!");
+        }
+        callback = (OnItemSelected) activity;
     }
 }
