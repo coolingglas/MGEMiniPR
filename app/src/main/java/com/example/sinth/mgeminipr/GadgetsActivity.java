@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import domain.Gadget;
 import domain.Reservation;
 import service.Callback;
 import service.LibraryService;
@@ -12,7 +13,7 @@ import service.LibraryService;
 
 
 
-public class GadgetsActivity extends AppCompatActivity implements IReservationClickListener {
+public class GadgetsActivity extends AppCompatActivity implements IReservationClickListener, IGadgetsClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class GadgetsActivity extends AppCompatActivity implements IReservationCl
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new ShowReservationFragment(), "Reservations");
         adapter.addFragment(new LoanFragment(), "Loans");
+        adapter.addFragment(new GadgetsFragment(), "Gadgets");
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -48,6 +50,22 @@ public class GadgetsActivity extends AppCompatActivity implements IReservationCl
             }
         });
 
+    }
+
+
+    @Override
+    public void onItemSelected(Gadget gadget) {
+        LibraryService.reserveGadget(gadget, new Callback<Boolean>() {
+            @Override
+            public void onCompletion(Boolean input) {
+                loadFragments();
+            }
+
+            @Override
+            public void onError(String message) {
+
+            }
+        });
     }
 }
 

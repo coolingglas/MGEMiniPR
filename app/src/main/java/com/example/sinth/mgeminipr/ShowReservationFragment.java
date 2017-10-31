@@ -2,18 +2,11 @@ package com.example.sinth.mgeminipr;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import android.app.Activity;
-import android.app.FragmentTransaction;
-import android.content.Context;
-import android.support.v4.app.ListFragment;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,7 +18,7 @@ import service.LibraryService;
 
 public class ShowReservationFragment extends Fragment {
     private RecyclerView recyclerView;
-    private OnItemSelected callback;
+    private IGadgetsClickListener callback;
 
     private IReservationClickListener myClickListener;
 
@@ -47,25 +40,6 @@ public class ShowReservationFragment extends Fragment {
             public void onCompletion(List<Reservation> input) {
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                RecyclerAdapterForReservations recyclerAdapterForReservations = new RecyclerAdapterForReservations(input);
-                recyclerView.setAdapter(recyclerAdapterForReservations);
-
-                recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-                    @Override
-                    public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                        return false;
-                    }
-
-                    @Override
-                    public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-                    }
-
-                    @Override
-                    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-                    }
-                });
                 reservationRecyclerAdapter.setItems(input);
                 recyclerView.setAdapter(reservationRecyclerAdapter);
             }

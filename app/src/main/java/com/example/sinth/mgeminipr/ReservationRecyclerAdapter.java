@@ -47,7 +47,6 @@ public class ReservationRecyclerAdapter extends RecyclerView.Adapter<RecyclerVie
         Context context = parent.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.recycler_item, parent, false);
         TextView itemTextView = (TextView) view.findViewById(R.id.itemTextView);
-
         itemTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +65,7 @@ public class ReservationRecyclerAdapter extends RecyclerView.Adapter<RecyclerVie
         Reservation itemReservation = items.get(position);
         holder.setItemText(itemText);
         holder.setReservation(itemReservation);
+
     }
 
     @Override
