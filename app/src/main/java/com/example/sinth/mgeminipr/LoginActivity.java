@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import service.Callback;
 import service.LibraryService;
@@ -13,62 +17,45 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gadgets);
         LibraryService.setServerAddress("http://mge1.dev.ifs.hsr.ch/public");
-        /*LibraryService.register("guesel", "guesel", "guesel", "guesel", new Callback<Boolean>() {
+
+        setContentView(R.layout.activity_login);
+        Button btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCompletion(Boolean input) {
-                if(input){
-                    Log.d("Top", "Register");
-                } else {
-                    Log.d("Nope", "Register");
+            public void onClick(View v) {
+                EditText editTextEMail = (EditText) findViewById(R.id.editTextEMail);
+                EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
-                }
-            }
+                String email = editTextEMail.getText().toString();
+                String password = editTextPassword.getText().toString();
 
-            @Override
-            public void onError(String message) {
-                Log.d("tja", "tja");
-            }
-        });
-       /*LibraryService.logout(new Callback<Boolean>() {
-           @Override
-           public void onCompletion(Boolean input) {
-               if(input) {
-                   Log.d("logout", "erfolgreich");
-               }else{
-                   Log.d("logout", "nef");
+                LibraryService.login(email, password, new Callback<Boolean>() {
+                    @Override
+                    public void onCompletion(Boolean input) {
+                        if(input){
+                            Intent intent = new Intent(LoginActivity.this, GadgetsActivity.class);
+                            startActivity(intent);
+                        }
+                    }
 
-               }
-           }
-
-           @Override
-           public void onError(String message) {
-
-           }
-       });*/
-        LibraryService.login("guesel", "guesel", new Callback<Boolean>() {
-            @Override
-            public void onCompletion(Boolean input) {
-                if(input){
-                    Log.d("Top", "Login");
-                    Intent i = new Intent(LoginActivity.this, GadgetsActivity.class);
-                    startActivity(i);
-
-                } else {
-                    Log.d("Flop", "Login");
-                }
-
-            }
-
-            @Override
-            public void onError(String message) {
-                Log.e("Error", message);
+                    @Override
+                    public void onError(String message) {
+                        Log.e("Error", message);
+                        TextView textViewError = (TextView) findViewById(R.id.textViewError);
+                        textViewError.setText("Benutzer nicht vorhanden");
+                    }
+                });
             }
         });
 
-
-
-
+        Button btnRegistration = (Button) findViewById(R.id.btnRegistration);
+        btnRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

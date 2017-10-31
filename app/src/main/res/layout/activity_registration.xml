@@ -1,92 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:columnCount="2"
-    android:columnOrderPreserved="false"
-    android:elevation="1dp"
-    android:orientation="vertical">
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/titleView"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="0"
-        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
         android:text="Registration"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/nameView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="1"
-        android:text="Name:" />
+        android:textSize="50sp"/>
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/editTextEMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="1"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
         android:ems="10"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/e_mailView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="2"
-        android:text="Email: " />
-
-
+        android:hint="E-Mail Adresse"
+        android:inputType="textEmailAddress"
+        android:text="" />
 
     <EditText
-        android:id="@+id/e_mailText"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="2"
         android:ems="10"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/MartikelNumberView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="3"
-        android:text="MartikelNummer:" />
-
-
-    <EditText
-        android:id="@+id/MartikelNumberText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="3"
-        android:inputType="number"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/PasswortView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="4"
-        android:text="Passwort:" />
-
-    <EditText
-        android:id="@+id/PasswortText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="4"
         android:inputType="textPassword"
-        android:ems="10" />
+        android:hint="Passwort"
+        android:layout_below="@+id/editTextEMail"
+        android:layout_alignStart="@+id/editTextEMail"
+        android:layout_marginTop="17dp" />
 
-</GridLayout>
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_alignStart="@+id/editTextPassword" />
+
+    <EditText
+        android:id="@+id/editTextStudentNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Studentennummer"
+        android:inputType="number"
+        android:layout_below="@+id/editTextName"
+        android:layout_alignStart="@+id/editTextName" />
+
+    <Button
+        android:id="@+id/btnRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="registrieren"
+        android:layout_below="@+id/editTextStudentNumber"
+        android:layout_marginTop="32dp"
+        android:layout_alignStart="@+id/editTextStudentNumber"
+        android:layout_alignEnd="@+id/editTextStudentNumber" />
+
+</RelativeLayout>
