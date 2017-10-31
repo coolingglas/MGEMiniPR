@@ -44,19 +44,5 @@ public class GetGadgets extends AppCompatActivity {
                 Log.d(message, message);
             }
         });
-
-        /*LibraryService.getGadgets(new Callback<List<Gadget>>() {
-            @Override
-            public void onCompletion(List<Gadget> input) {
-                ListView view = (ListView) findViewById(R.id.listView);
-                ArrayAdapter<Gadget> arrayAdapter = new ArrayAdapter<> (view.getContext(), android.R.layout.simple_list_item_1, input);
-                view.setAdapter(arrayAdapter);
-            }
-
-            @Override
-            public void onError(String message) {
-
-            }
-        });*/
     }
 }

@@ -18,7 +18,6 @@ import service.LibraryService;
 
 public class ShowReservationFragment extends Fragment {
     private RecyclerView recyclerView;
-    private IGadgetsClickListener callback;
 
     private IReservationClickListener myClickListener;
 
@@ -38,7 +37,6 @@ public class ShowReservationFragment extends Fragment {
         LibraryService.getReservationsForCustomer(new Callback<List<Reservation>>() {
             @Override
             public void onCompletion(List<Reservation> input) {
-
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 reservationRecyclerAdapter.setItems(input);
                 recyclerView.setAdapter(reservationRecyclerAdapter);

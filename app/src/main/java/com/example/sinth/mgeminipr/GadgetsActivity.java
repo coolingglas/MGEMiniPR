@@ -10,9 +10,6 @@ import domain.Reservation;
 import service.Callback;
 import service.LibraryService;
 
-
-
-
 public class GadgetsActivity extends AppCompatActivity implements IReservationClickListener, IGadgetsClickListener {
 
     @Override
@@ -34,9 +31,6 @@ public class GadgetsActivity extends AppCompatActivity implements IReservationCl
         tabLayout.setupWithViewPager(viewPager);
     }
 
-
-
-
     public void onReservationClicked(Reservation reservation) {
         LibraryService.deleteReservation(reservation, new Callback<Boolean>() {
             @Override
@@ -49,9 +43,7 @@ public class GadgetsActivity extends AppCompatActivity implements IReservationCl
 
             }
         });
-
     }
-
 
     @Override
     public void onItemSelected(Gadget gadget) {
@@ -68,22 +60,3 @@ public class GadgetsActivity extends AppCompatActivity implements IReservationCl
         });
     }
 }
-
-
-
-    // LibraryService.setServerAddress("http://mge1.dev.ifs.hsr.ch/public​");
-    /*LibraryService.getGadgets(new Callback<List<Gadget>>() {
-        @Override
-        public void onCompletion(List<Gadget> input) {
-            ListView view = (ListView) findViewById(R.id.gadgets);
-            MyArrayAdapter<Gadget> arrayAdapter = new MyArrayAdapter<> (GadgetsActivity.this, R.layout.layout_row, R.id.label, input);
-            view.setAdapter(arrayAdapter);
-        }
-
-        @Override
-        public void onError(String message) {
-            Log.d(message, message);
-        }
-    });*/
-
-

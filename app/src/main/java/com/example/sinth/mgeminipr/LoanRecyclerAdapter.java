@@ -52,5 +52,4 @@ public class LoanRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public int getItemCount() {
         return items == null ? 0 : items.size();
     }
-
 }

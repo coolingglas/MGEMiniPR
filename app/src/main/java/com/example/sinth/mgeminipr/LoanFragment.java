@@ -36,24 +36,6 @@ public class LoanFragment extends Fragment {
             }
         });
 
-        /*LibraryService.getGadgets(new Callback<List<Gadget>>() {
-            @Override
-            public void onCompletion(List<Gadget> input) {
-                List<String> items = new ArrayList<>();
-                for(int i = 0; i < input.size(); i++) {
-                    items.add(input.get(i).getName());
-                }
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                RecyclerAdapter recyclerAdapter = new RecyclerAdapter(items);
-                recyclerView.setAdapter(recyclerAdapter);
-            }
-
-            @Override
-            public void onError(String message) {
-
-            }
-        });*/
-
         return recyclerView;
     }
 }

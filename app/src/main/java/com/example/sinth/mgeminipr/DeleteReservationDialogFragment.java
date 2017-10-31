@@ -24,5 +24,4 @@ public class DeleteReservationDialogFragment extends DialogFragment {
 
         return builder.create();
     }
-
 }

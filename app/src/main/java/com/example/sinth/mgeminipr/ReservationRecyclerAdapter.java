@@ -72,5 +72,4 @@ public class ReservationRecyclerAdapter extends RecyclerView.Adapter<RecyclerVie
     public int getItemCount() {
         return items == null ? 0 : items.size();
     }
-
 }

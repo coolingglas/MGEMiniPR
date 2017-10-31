@@ -26,9 +26,6 @@ public class GadgetsFragment extends Fragment {
         callback = (IGadgetsClickListener) activity;
     }
 
-
-//fragment_loan in fragment_Gadgets anpassen
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_gadgets, container, false);
@@ -49,6 +46,4 @@ public class GadgetsFragment extends Fragment {
 
         return recyclerView;
     }
-
-
 }
