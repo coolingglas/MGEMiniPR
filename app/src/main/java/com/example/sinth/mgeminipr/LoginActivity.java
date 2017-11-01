@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import service.Callback;
@@ -55,6 +57,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Switch switchSchool = (Switch) findViewById(R.id.switchSchool);
+        switchSchool.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(!isChecked) {
+                    LibraryService.setServerAddress("http://mge1.dev.ifs.hsr.ch/public");
+                } else {
+                    LibraryService.setServerAddress("http://mge2.dev.ifs.hsr.ch/public");
+                }
             }
         });
     }

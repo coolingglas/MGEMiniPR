@@ -63,10 +63,37 @@
         android:id="@+id/textViewError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
         android:textColor="@color/colorAccent"
-        android:text="" />
+        android:text=""
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/switchSchool"
+        android:layout_centerHorizontal="true" />
+
+    <Switch
+        android:id="@+id/switchSchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/btnLogin"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textViewZHAW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/switchSchool"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/switchSchool"
+        android:text="ZHAW" />
+
+    <TextView
+        android:id="@+id/textViewHSR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/switchSchool"
+        android:layout_marginEnd="10dp"
+        android:layout_toStartOf="@+id/switchSchool"
+        android:text="HSR" />
 
 </RelativeLayout>
