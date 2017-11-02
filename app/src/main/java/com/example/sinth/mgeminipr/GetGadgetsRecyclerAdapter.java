@@ -11,11 +11,11 @@ import java.util.List;
 
 import domain.Gadget;
 
-public class RecyclerAdapterForGetGadgets extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GetGadgetsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Gadget> items;
     private IGadgetsClickListener listener;
 
-    public RecyclerAdapterForGetGadgets(List<Gadget> itemList, IGadgetsClickListener listener) {
+    public GetGadgetsRecyclerAdapter(List<Gadget> itemList, IGadgetsClickListener listener) {
         items = itemList;
         this.listener = listener;
     }

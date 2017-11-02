@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MGEMiniPR.iml" filepath="$PROJECT_DIR$/MGEMiniPR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MGEMiniPr.iml" filepath="$PROJECT_DIR$/MGEMiniPr.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

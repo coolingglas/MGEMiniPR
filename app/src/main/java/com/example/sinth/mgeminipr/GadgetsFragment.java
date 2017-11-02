@@ -34,7 +34,7 @@ public class GadgetsFragment extends Fragment {
             @Override
             public void onCompletion(List<Gadget> input) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                final RecyclerAdapterForGetGadgets recyclerAdapter = new RecyclerAdapterForGetGadgets(input, callback);
+                final GetGadgetsRecyclerAdapter recyclerAdapter = new GetGadgetsRecyclerAdapter(input, callback);
                 recyclerView.setAdapter(recyclerAdapter);
             }
 

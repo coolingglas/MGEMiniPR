@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sinth.mgeminipr.LoanRecyclerAdapter;
+import com.example.sinth.mgeminipr.R;
+
 import java.util.List;
 
 import domain.Loan;
